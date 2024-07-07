@@ -9,6 +9,16 @@ const { type } = require('os');
 const server = express();
 
 
+
+// Middleware. It should be written above the APIs. 
+server.use((req,res,next)=>{
+    console.log("Hello from Use") ;
+    console.log(req.method, req.hostname, req.ip, req.get('User-Agent'))
+
+    // By next() we tell the server to move on to next request as this request is now comlpeted.
+    next() ;
+}) ;
+
 //APIs / Endpoints / Routes / But not REST APIs
 server.get('/',(req,res)=>{
     // res.send("<i>Hello from Express</i>") ; // sends either text or entire html
@@ -33,6 +43,8 @@ server.put('/',(req, res)=>{
 server.delete('/',(req, res)=>{
     res.json({type:'DELETE'})
 }) ;
+
+
 
 
 
