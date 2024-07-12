@@ -46,6 +46,8 @@ server.use(auth);
 //   res.json({ type: "GET" });
 // });
 
+
+// Like below we can send post put get delete update mappings, just as springboot
 // server.post("/", (req, res) => {
 //   res.json({ type: "POST" });
 // });
